@@ -65,7 +65,8 @@ var cowsay = function (thought) {
 (function () {
     var wisdom = ["/fortune/fortunes",
 		 "/fortune/literature"];
-    wisdom = wisdom[parseInt (wisdom.length * Math.random())];
+//  wisdom = wisdom[parseInt (wisdom.length * Math.random())];
+    wisdom = wisdom[0];
 
     var wise;
     var ajax = new XMLHttpRequest();
