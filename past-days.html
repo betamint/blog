@@ -1,9 +1,7 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <title>past-days</title>
-</head>
-<body>
+---
+layout: default
+title past-days
+---
 
 <p class="birth">birthday:</p>
 <input class="birth" id="birth" type="number" onchange="calc();" />
@@ -13,7 +11,6 @@
 <input class="past" id="past" />
 <p>Happy Hacking, Happy Lifing.</p>
 
-</body>
 <script>
 (function () {
 	var now = new Date();
@@ -71,4 +68,3 @@ pastDays = function (birth, end) {
 	return days;
 }
 </script>
-</html>
