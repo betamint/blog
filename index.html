@@ -3,13 +3,15 @@ layout: default
 title: owls won't sleep
 ---
 
+
+<h2>{{ page.title }}</h2>
+
 <form method="get" action="http://www.google.com/search">
   <input type="hidden" name="sitesearch" value="betamint.org" />
   <input type="text" name="q" />
   <input type="submit" value="search" />
 </form>
 
-<h2>{{ page.title }}</h2>
 <ul>
   <li><a href="/daily-words.html">KeyWords</a></li>
   {% for post in site.posts %}
