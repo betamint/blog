@@ -3,18 +3,31 @@ layout: default
 title: owls won't sleep
 ---
 
+<div id="home">
 
-<h2>{{ page.title }}</h2>
+<div class="title"><a href="/">owls won't sleep</div>
 
-<form method="get" action="http://www.google.com/search">
+<h1>blog posts</h1>
+<ul class="posts">
+  {% for post in site.posts %}
+  <li>
+    <span>{{ post.date | date_to_string }}</span> &raquo;
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<h1>links</h1>
+<ul class="posts">
+  <li>&raquo; <a href="daily-words.html">Keywords in my life</a></li>
+  <li>&raqui; <a href="atom.xml">Subscribe to RSS Feed" /></li>
+  <li>&raquo; <a href="fun/">fun lab</a></li>
+</ul>
+
+<form class="search" method="get" action="http://www.google.com/search">
   <input type="hidden" name="sitesearch" value="betamint.org" />
   <input type="text" name="q" />
   <input type="submit" value="search" />
 </form>
 
-<ul>
-  <li><a href="/daily-words.html">KeyWords</a></li>
-  {% for post in site.posts %}
-  <li>{{ post.date | date_to_string }} <a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-</ul>
+</div>
