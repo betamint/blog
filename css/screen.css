@@ -87,22 +87,6 @@ ul.posts {
     color: black;
   }
 
-.search {
-  float: right;
-}
-
-.search  input[type="submit"] {
-  border: 0;
-  background-color: #fff;
-  color: #999;
-}
-
-.search input[type="text"] {
-  border: 0;
-  border-bottom: 1px solid #999;
-  color: #999;
-}
-
 .footer {
   font-size: 80%;
   color: #666;
