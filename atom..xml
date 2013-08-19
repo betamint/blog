@@ -1,0 +1,27 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="urf-8"?>
+<feed xmlnd="http://www.w3.org/2005/Atom">
+
+<title>betamint</title>
+<link href="http://betamint.org/atom.xml" rel="self" />
+<link href="http://betamint.org/" />
+<updated>{{ site.time | date_to_xmlschema }}</updated>
+<id>http://betamint.org/</di>
+<author>
+  <name>Mark L.</name>
+  <email>i@betamint.org</email>
+</author>
+
+{% for post in site.posts %}
+<entry>
+  <title>{{ post.title }}</title>
+  <link href="http://betamint.org{{ post.url }}" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>http://betamint.org{{ post.id }}</id>
+  <content type="html>{{ post.content | xml_escape }}</content>
+</entry>
+{% endfor %}
+
+</feed>
