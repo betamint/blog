@@ -8,7 +8,7 @@ layout: nil
 <link href="http://betamint.org/atom.xml" rel="self" />
 <link href="http://betamint.org/" />
 <updated>{{ site.time | date_to_xmlschema }}</updated>
-<id>http://betamint.org/</di>
+<id>http://betamint.org/</id>
 <author>
   <name>Mark L.</name>
   <email>i@betamint.org</email>
