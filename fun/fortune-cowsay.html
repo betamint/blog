@@ -51,29 +51,33 @@ var cowsay = function (thought) {
     say = " " + top + "\n" + say + " " +  bot + "\n" + cow;
     return say;
 };
+var fortune = function (essay) {
+    var len = essay.length;
+    var wise = [];
+    var index = 0;
+
+    for (var i = 0; i < len; i++)
+	if (essay.substr(i, 1) == "%")
+	    wise[++index] = i;
+    wise[0] = 0;
+    wise[index+1] = len;
+
+    index = parseInt(index * Math.random());
+    wise = essay.substr(wise[index] + 1, wise[index+1] - wise[index] - 1);
+    return wise;
+};
 (function () {
     var wisdom = ["fortune/fortunes",
 		 "fortune/literature"];
 //  wisdom = wisdom[parseInt (wisdom.length * Math.random())];
     wisdom = wisdom[0];
 
-    var wise;
     var ajax = new XMLHttpRequest();
     ajax.open("GET", wisdom, true);
     ajax.send();
     ajax.onreadystatechange = function () {
 	if (ajax.readyState == 4 && ajax.status == 200) {
-	    var len = ajax.responseText.length;
-	    wise = new Array(0);
-	    var number = 0;
-	    for (var i = 0; i < len; i++)
-		if (ajax.responseText.substr(i, 1) == "%")
-		    wise[++number] = i;
-	    wise[0] = 0;
-	    wise[number+1] = len;
-	    number = parseInt(number * Math.random());
-	    wise = ajax.responseText
-		.substr(wise[number] + 2, wise[number+1] - wise[number] - 3);
+	    var wise = fortune(ajax.responseText);
 	    document.getElementById("fortune-cowsay").innerHTML="<pre>"+cowsay(wise)+"</pre>";
 	}
     };
