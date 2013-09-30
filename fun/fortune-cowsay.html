@@ -5,68 +5,9 @@ title: fortune | cowsay
 
 <div id="fortune-cowsay"></div>
 
+<script type="text/javascript" src="http://rawgithub.com/betamint/owls/master/cowsay.js"></script>
+<script type="text/javascript" src="http://rawgithub.com/betamint/owls/master/fortune.js"></script>
 <script>
-var cowsay = function (thought) {
-    var scale = 40;
-
-    var len = thought.length;
-    var columns = scale < len ? scale : len;
-    var rows;
-
-    var top = "__";
-    var bot = "--";
-    for (var i = 0; i < columns; i++) {
-	top += "_";
-	bot += "-";
-    }
-
-    var line = new Array();
-    for (rows = 0; len > 0; rows++) {
-	line[rows] = thought.substr(rows * scale, scale < len ? scale : len);
-	len -= scale;
-    }
-    if (rows === 1) {
-	line[0] = "< " + line[0] + " >";
-    } else {
-	var space = "";
-	for (; len < 0; len++)
-	    space += " ";
-	line[0] = "/ " + line[0] + " \\";
-	line[rows-1] = "\\ " + line[rows-1] + space + " /";
-	for (var i = 1; i < rows - 1; i++) {
-	    line[i] = "| " + line[i] + " |";
-	}
-    }
-
-    var cow = "\
-        \\   ^__^\n\
-         \\  (oo)\\_______\n\
-            (__)\\       )\\/\\\n\
-                ||----w |\n\
-                ||     ||";
-
-    var say = "";
-    for (var i = 0; i < rows; i++)
-	say += line[i] + "\n";
-    say = " " + top + "\n" + say + " " +  bot + "\n" + cow;
-    return say;
-};
-var fortune = function (essay, sep) {
-    var len = essay.length;
-    var slen = sep.length;
-    var wise = [];
-    var index = 0;
-
-    for (var i = 0; i < len; i++)
-	if (essay.substr(i, slen) == sep)
-	    wise[++index] = i;
-    wise[0] = - slen;
-    wise[index+1] = len;
-
-    index = parseInt(index * Math.random());
-    wise = essay.substr(wise[index] + slen, wise[index+1] - wise[index] - slen);
-    return wise;
-};
 (function () {
     var wisdom = ["fortune/fortunes",
 		 "fortune/literature"];
