@@ -1,0 +1,19 @@
+---
+layout: default
+title: hackability
+---
+
+<h4>password</h4>
+<input id="passwd" type="text" onchange="test();" />
+<h4>hackability</h4>
+<p id="result"></p>
+
+<script type="text/javascript" src="http://rawgithub.com/betamint/owls/master/hackability.js"></script>
+<script type="text/javascript">
+String.prototype.hackability = hackability;
+var test = function () {
+  var passwd = document.getElementById("passwd");
+  var result = document.getElementById("result");
+  result.innerHTML = passwd.value.hackability().message;
+};
+</script>
